@@ -17,6 +17,5 @@ minnehaha_visits integer DEFAULT 0,
 bootcamp boolean DEFAULT false,
 bootcamp_visits integer DEFAULT 0,
 doghouse boolean DEFAULT false,
-doghouse_visits integer DEFAULT 0,
 PRIMARY KEY (id)
 );
