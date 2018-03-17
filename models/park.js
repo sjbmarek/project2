@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    total park_visits: {
+    total_park_visits: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
