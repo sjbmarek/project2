@@ -1,33 +1,13 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Park = sequelize.define("Park", {
-    como: {
+    park_name: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    como_visits: {
+    total park_visits: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
-    },
-    minnehaha: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    minnehaha_visits: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-    },
-    bootcamp: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
-    },
-    bootcamp_visits: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-    },
-    doghouse: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
     },
 
   });
