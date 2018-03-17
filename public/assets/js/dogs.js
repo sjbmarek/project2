@@ -4,10 +4,10 @@ $(document).ready(function(){
 		e.preventDefault();
 
 		var dogRecord = {
-			dogName: $("input[value='dog_name']").val().trim();,
-			ownerName: $("input[value='owner_name']").val().trim(),
-			dogComment: $("input[value='dog_comment']").val().trim(),
-			dogPhoto: $("input[value='dog_photo_url']").val().trim()
+			dogName: $("input[name='dog_name']").val().trim(),
+			ownerName: $("input[name='owner_name']").val().trim(),
+			dogComment: $("input[name='dog_comment']").val().trim(),
+			dogPhoto: $("input[name='dog_photo_url']").val().trim()
 		}
 
 		console.log(dogRecord);
