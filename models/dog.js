@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
     park_at: {
       type: DataTypes.STRING,
       defaultValue: "Doghouse"
-    }
+    },
     como_visits: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
