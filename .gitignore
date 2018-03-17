@@ -66,3 +66,7 @@ node_modules/
 
 # ignore json config file
 config/
+
+# Design Folder
+design/
+
