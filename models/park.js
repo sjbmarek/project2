@@ -2,8 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Park = sequelize.define("Park", {
     park_name: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      type: DataTypes.STRING,
     },
     total_park_visits: {
       type: DataTypes.INTEGER,
