@@ -63,3 +63,6 @@ typings/
 node_modules/
 .DS_Store
 .env
+
+# ignore json config file
+config/
