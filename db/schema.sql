@@ -1,5 +1,5 @@
 -- Create the database dogs_db and specified it for use.
-CREATE DATABASE dogs_db;
+CREATE DATABASE doggo_db;
 USE dogs_db;
 
 -- Create the table burgers.
