@@ -15,7 +15,8 @@ $(document).ready(function(){
 		$.post("/api/newDog", dogRecord,
 	  			function(data){
 	  				console.log(data);
-	  			});
+				  });
+				  location.reload();
 
 	});
 
