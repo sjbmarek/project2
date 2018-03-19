@@ -1,3 +1,6 @@
+var test = ["dogs.js is connected"]
+console.log(test)
+
 $(document).ready(function(){
 	var dogId = 0;
 
@@ -27,7 +30,6 @@ $(document).ready(function(){
 
 // Initialize Firebase
 //========================================================================
-
 var config = {
     apiKey: "AIzaSyCq24OblNHStJVOzNsdYFoaMVfQQF5PVn0",
     authDomain: "pupcrawl-fea80.firebaseapp.com",
@@ -47,6 +49,7 @@ fileButton.addEventListener("change", function(e) {
 
     // Get file
     var file = e.target.files[0];
+    console.log(file);
 
     // Create storage ref
     var storageRef = firebase.storage().ref("profile_pics/" + file.name);
@@ -59,16 +62,18 @@ fileButton.addEventListener("change", function(e) {
         function progress(snapshot) {
             var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             uploader.value = percentage;
-        };
+        },
 
         function error (err) {
-        };
+        },
 
         function complete() {
-        };
-
+            console.log(complete)
+        },
     );
-=======
+});
+
+
 // 	$("#comoSubmit").on("click", function(e) {
 //     e.preventDefault();
 // 	console.log("This was clicked");
@@ -167,6 +172,3 @@ fileButton.addEventListener("change", function(e) {
 			}
 		);
 	});
-
-
-});
