@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     como_visits: {
       type: DataTypes.INTEGER,
-      defaultValue: 0,
+      defaultValue: 0, 
     },
     minnehaha_visits: {
       type: DataTypes.INTEGER,
