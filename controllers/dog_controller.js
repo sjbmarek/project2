@@ -1,10 +1,10 @@
 var express = require("express");
-
+var Sequelize = require('sequelize');
 // Testing the Test file
 var path = require("path");
 
 var router = express.Router();
-
+const Op = Sequelize.Op;
 // Import the model (burger.js) to use its database functions.
 var db = require("../models");
 
@@ -15,30 +15,30 @@ var db = require("../models");
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
   // console.log(db);
+
+      console.log(new Date);
+      console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+    db.Dog.update({
+        park_at: "Doghouse"
+      },{
+      where: {
+        park_at: {
+          [Op.ne]: "Doghouse"
+        },
+        updatedAt: {
+          // [Op.lt]: new Date(),
+          [Op.lt]: (new Date() - 2 * 60 * 60 * 1000)
+          // [Op.gt]: Math.abs(parseInt(new Date().slice(16,18)) - parseInt(db.Dog.updatedAt.slice(11,13)))
+        }
+      }
+    });
+
+
   db.Dog.findAll({}).then(function(results) {
     // var hbsObject = {
     // 	dogs: results
     // };
     console.log("XXXXXXXXXXXX");
- 
-    // db.Dog.findAll({
-    //   where: {
-    //     park_at: {
-    //       [Op.ne]: "Doghouse"
-    //     },
-    //     updatedAt: {
-    //       [Op.lt]: new Date(),
-    //       [Op.gt]: new Date(new Date() - 2 * 60 * 60 * 1000)
-    //       // [Op.gt]: Math.abs(parseInt(new Date().slice(16,18)) - parseInt(db.Dog.updatedAt.slice(11,13)))
-    //     }
-    //   }
-    // }).then(function (results) {
-    //   db.Dog.update({
-    //     park_at: "Doghouse"
-    //   })
-    //   console.log("am back home");
-    //   console.log(results);
-    // });
 
 
     // console.log(hbsObject);
@@ -241,27 +241,7 @@ router.put("/api/doghouse/:id", function (req, res) {
 
 
 
-//Time limit to get kicked out
-// db.Dog.findAll({
-//   where: {
-//     park_at: {
-//       [Op.ne]: "Doghouse"
-//     },
-//     updatedAt: {
-//       [Op.lt]: new Date(),
-//       [Op.gt]: new Date(new Date() - 2 * 60 * 60 * 1000)
-//       // [Op.gt]: Math.abs(parseInt(new Date().slice(16,18)) - parseInt(db.Dog.updatedAt.slice(11,13)))
-//     }
-//   }
-// }).then(function (results) {
-//    db.Dog.update({
-//      park_at: "Doghouse"
-//    })
-//   console.log("am back home");
-//   console.log(results);
-// });
-
-
 
 
 module.exports = router;
+

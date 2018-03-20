@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var db = require("./models");
 
-var routes = require("./controllers/dog_controller")
+var routes = require("./controllers/dog_controller.js")
 
 var PORT = process.env.PORT || 3000;
 
