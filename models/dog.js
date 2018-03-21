@@ -17,7 +17,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     dog_comment: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
+      defaultValue: "I'm new to this."
       validate: {
         len: [1]
       }
