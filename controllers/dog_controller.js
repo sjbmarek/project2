@@ -57,7 +57,6 @@ router.post("/api/newDog", function(req, res) {
   db.Dog.create({
     dog_name: req.body.dogName,
     owner_name: req.body.ownerName,
-    dog_comment: req.body.dogComment,
     dog_photo_url: req.body.dogPhoto
   }).then(function(results) {
     console.log("RRRRRRRRRRRRRRRR");
