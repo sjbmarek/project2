@@ -68,7 +68,7 @@ router.post("/api/newDog", function(req, res) {
     console.log(results.id);
     dogId = results.id;
     console.log(dogId);
-    // location.reload()
+    // location.reload()  This should go to the doghouse.
   });
 });
 

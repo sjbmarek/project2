@@ -1,5 +1,5 @@
-var test = ["dogs.js is connected"]
-console.log(test)
+var test = ["dogs.js is connected"];
+console.log(test);
 
 $(document).ready(function(){
 	var dogId = 0;
@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 	});
 
-});
+// });
 
 
 // Initialize Firebase
@@ -172,3 +172,5 @@ fileButton.addEventListener("change", function(e) {
 			}
 		);
 	});
+
+});
