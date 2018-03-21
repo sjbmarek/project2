@@ -1,0 +1,137 @@
+/* App Colors */
+/*
+Main green: #2cb71d
+Dark green: #158918
+Orange: #d67216
+Dark orange: #bf6216
+Purple: #562696
+Dark purple: #46217f
+Light grey: #dbdbdb
+Medium grey: #c6c6c6
+Dark grey: #6d6d6d
+*/
+
+/* HTML Elements */
+body {
+	background: #2cb71d;
+}
+
+h1, h2, h3, h4, button {
+	font-family: 'Archivo Black', sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+p {
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	text-align: center;
+}
+
+button {
+	border: none !important;
+}
+
+input {
+	font-family: 'Montserrat', sans-serif;
+	color: #dbdbdb;
+	border-radius: 10px;
+}
+
+input:focus {
+	/*color: #dbdbdb;*/
+	border-radius: none;
+	outline: none;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Body Components */
+.bg {
+	min-height: 100vh;
+}
+
+.logo {
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+	display: block;
+	margin: 0 auto;
+}
+
+.intro-graphic {
+	width: 100%;
+}
+
+.main-button {
+
+}
+
+.signup {
+	background: #562696;
+	display: block;
+	margin: 15px auto;
+	font-size: 1.8em;
+	padding: 15px 40px;
+	border-radius: 15px;
+	min-width: 250px;
+}
+
+.login {
+	background: #d67216;
+	display: block;
+	margin: 0 auto;
+	font-size: 1.8em;
+	padding: 15px 40px;
+	border-radius: 15px;
+	min-width: 250px;
+	transition: .25s;
+}
+
+/* Sign up section */
+/*==============================================*/
+
+.dog-tag {
+	width: 80%;
+	background: #dbdbdb;
+	min-height: 250px;
+	border: 10px solid #6d6d6d;
+	border-radius: 20px;
+	padding: 10px;
+	margin: 0 auto;
+	display: block;
+	position: relative;
+}
+
+.sign-up-input {
+	width: 100%;
+    background: #c6c6c6;
+    margin: 5px 0px;
+    padding: 5px;
+    box-shadow: none;
+    border: none;
+    border-radius: 10px;
+    color: #6d6d6d;
+}
+
+.photo-label {
+	display: block;
+}
+
+.photo-upload {
+	height: 125px;
+	object-fit: cover;
+	border-radius: 50%;
+	display: block;
+	margin: 0 auto;
+}
+
+.sign-up-submit {
+	width: 75px;
+	height: 75px;
+	background: #d67216;
+}
+
