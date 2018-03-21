@@ -1,33 +1,6 @@
 var test = ["dogs.js is connected"];
 console.log(test);
 
-$(document).ready(function(){
-	var dogId = 0;
-
-	$("#submit").on("click", function(e){
-		e.preventDefault();
-
-		var dogRecord = {
-			dogName: $("input[name='dog_name']").val().trim(),
-			ownerName: $("input[name='owner_name']").val().trim(),
-			dogComment: $("input[name='dog_comment']").val().trim(),
-			dogPhoto: $("input[name='dog_photo_url']").val().trim()
-		}
-
-		console.log(dogRecord);
-
-		$.post("/api/newDog", dogRecord,
-	  			function(data){
-					  console.log("we are hitting it");
-	  				console.log(data);
-				  });
-				//   location.reload();
-
-	});
-
-// });
-
-
 // Initialize Firebase
 //========================================================================
 var config = {
@@ -40,38 +13,75 @@ var config = {
 };
 firebase.initializeApp(config);
 
-// Get Elements
-var uploader = document.getElementById("uploader");
-var fileButton = document.getElementById("dog_photo_url");
+$(document).ready(function(){
+	var dogId = 0;
+    var dogImage = "";
 
-// Listen for file selection
-fileButton.addEventListener("change", function(e) {
+	$("#submit").on("click", function(e){
+		e.preventDefault();
 
-    // Get file
-    var file = e.target.files[0];
-    console.log(file);
+        // Get Elements
+        var uploader = document.getElementById("uploader");
+        var fileButton = document.getElementById("dog_file");
 
-    // Create storage ref
-    var storageRef = firebase.storage().ref("profile_pics/" + file.name);
+        // Get file
+        var file = fileButton.files[0];
+        console.log(file);
 
-    // Upload file
-    var task = storageRef.put(file);
+        // Create storage ref
+        var storageRef = firebase.storage().ref("profile_pics/" + file.name);
 
-    // Update progress bar
-    task.on("state_changed",
-        function progress(snapshot) {
-            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            uploader.value = percentage;
-        },
+        // Upload file
+        var task = storageRef.put(file);
+   
 
-        function error (err) {
-        },
+        // Update progress bar
+        task.on("state_changed",
+            function progress(snapshot) {
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+            },
 
-        function complete() {
-            console.log(complete)
-        },
-    );
-});
+            function error (err) {
+            },
+
+            function complete() {
+                console.log("COMPLETE!");
+
+                // Once complete - get the stored image URL
+                // var dogURL = storageRef.getDownloadURL().then(function(url));
+                storageRef.getDownloadURL().then(function(url) {
+
+                    dogImage = url;
+                    console.log(dogImage);
+            });
+
+        });
+
+        // get url for picture link
+        // var dogURL = storageRef.getDownloadURL();
+        // console.log(dogURL);
+
+
+        var dogRecord = {
+			dogName: $("input[name='dog_name']").val().trim(),
+			ownerName: $("input[name='owner_name']").val().trim(),
+			dogComment: $("input[name='dog_comment']").val().trim(),
+			dogPhoto: dogImage
+		}
+
+		console.log(dogRecord);
+
+		$.post("/api/newDog", dogRecord,
+	  			function(data){
+					  console.log("we are hitting it");
+	  				console.log(data);
+				  });
+				  // location.reload();
+
+	});
+
+
 
 
 // 	$("#comoSubmit").on("click", function(e) {
