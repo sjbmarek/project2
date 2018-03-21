@@ -17,11 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     dog_comment: {
       type: DataTypes.STRING,
-      // allowNull: false,
-      defaultValue: "I'm new to this."
-      validate: {
-        len: [1]
-      }
+      defaultValue: "Woof Woof!"
     },
     dog_photo_url: {
       type: DataTypes.STRING,
