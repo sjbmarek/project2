@@ -46,7 +46,7 @@ input:focus {
 }
 
 input[type="file"] {
-    display: none;
+    /*display: none;*/
 }
 
 /* Body Components */
