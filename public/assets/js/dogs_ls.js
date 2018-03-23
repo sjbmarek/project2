@@ -1,4 +1,4 @@
-var test = ["dogs_ls.js is connected"];
+var test = ["dogs.js is connected"];
 console.log(test);
 
 // Initialize Firebase
@@ -15,7 +15,7 @@ firebase.initializeApp(config);
 
 $(document).ready(function(){
 	var dogId = 0;
-    
+	       
 
 	$("#submit").on("click", function(e){
 		e.preventDefault();
