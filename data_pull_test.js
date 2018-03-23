@@ -1,7 +1,10 @@
 var express = require("express");
-var mysql = require("mysql");
+var mysql = require("mysql2");
+var path = require("path");
 
 var app = express();
+
+app.use(express.static("testcode"));
 
 var port = 3000;
 
@@ -9,7 +12,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "test"
+  database: "doggo_db"
 });
 
 connection.connect(function(err) {
@@ -20,10 +23,15 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-//All Dogs
+//load page
 app.get("/", function(req, res) {
+ res.sendFile(path.join(__dirname, "/testcode/mike-dashboard.html"));
+});
 
-  connection.query("SELECT * FROM dogs", function(err, result) {
+//All Dogs
+app.get("/all-dogs", function(req, res) {
+
+  connection.query("SELECT * FROM Dogs", function(err, result) {
 
     var html = "<h1> All Dogs </h1>";
 
@@ -32,10 +40,10 @@ app.get("/", function(req, res) {
     for (var i = 0; i < result.length; i++) {
       html += "<li><p> ID: " + result[i].id + "</p>";
       html += "<p>Dog's Name: " + result[i].dog_name + " </p>";
-      html += "<p>Owner's Name: " + result[i].owner_name + " </p>";
-      html += "<p>Location: " + result[i].location + " </p>";
-      html += "<p>Comment: " + result[i].comment + " </p>";
-      html += "<p>Photo: <img src=" + result[i].picture_link + "></img></p></li>";
+      // html += "<p>Owner's Name: " + result[i].owner_name + " </p>";
+      // html += "<p>Location: " + result[i].location + " </p>";
+      // html += "<p>Comment: " + result[i].comment + " </p>";
+      // html += "<p>Photo: <img src=" + result[i].picture_link + "></img></p></li>";
     }
 
     html += "</ul>";
