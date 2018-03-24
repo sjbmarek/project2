@@ -29,7 +29,7 @@ $(document).ready(function(){
         console.log(file);
 
         // Create storage ref
-        var storageRef = firebase.storage().ref("profile_pics/" + file.name);
+        var storageRef = firebase.storage().ref("profile_pics/" + Date.now()+ file.name);
 
         // Upload file
         var task = storageRef.put(file);
