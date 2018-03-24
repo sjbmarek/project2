@@ -54,6 +54,20 @@ input[type="file"] {
     display: none;
 }
 
+tr td:nth-child(1) {
+	width: 20%;
+}
+
+td h4 {
+	text-align: left;
+	position: relative;
+	top: 14px;
+}
+
+.table td {
+	border-top: 1px solid #c6c6c6;
+}
+
 /* Body Components */
 .bg {
 	min-height: 100vh;
@@ -72,10 +86,6 @@ input[type="file"] {
 
 .intro-graphic {
 	width: 100%;
-}
-
-.main-button {
-
 }
 
 .signup {
@@ -160,11 +170,18 @@ input[type="file"] {
 	right: 5px;
 }
 
-/* Sign up section */
+/* Dashboard section */
 /*==============================================*/
 
 .dashboard-body {
 	background: #dbdbdb;
+}
+
+.nav-holder {
+	width: 100%;
+	position: fixed;
+	top: 0px;
+	z-index: 5000;
 }
 
 .user-bar {
@@ -240,6 +257,7 @@ input[type="file"] {
 .current-location-holder {
 	background: #158918;
 	padding-bottom: 1px;
+	padding-top: 28%;
 }
 
 .current-location {
@@ -250,8 +268,9 @@ input[type="file"] {
 .map {
 	width: 100%;
 	background: url(../public/assets/img/map-background-1200x770.jpg) center center no-repeat;
+	background-color: pink;
 	background-size: cover;
-	min-height: 250px;
+	min-height: 200px;
 	position: relative;
 }
 
@@ -263,6 +282,53 @@ input[type="file"] {
 
 .dog-holder {
 	width: 100%;
+}
+
+.checkin-status {
+	width: 100%;
+	background: #6d6d6d;
+	/*min-height: 50px;*/
+}
+
+.checkin-text {
+	margin-bottom: 0px;
+}
+
+.checkin-button {
+    display: block;
+    margin: 5px auto;
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 15px;
+    min-width: 120px;
+    transition: .25s;
+}
+
+.checked-in-doghouse {
+	background: #c6c6c6;
+}
+.checked-in-location {
+	background: #2cb71d;
+}
+.checked-out-location {
+	background: #d67216;
+}
+
+.dog-list-holder {
+	/*width: 100%;*/
+}
+
+.table-img {
+	height: 75px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+#table-status {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 11px;
+	position: relative;
+	bottom: 10px;
 }
 
 
