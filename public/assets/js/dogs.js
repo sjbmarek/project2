@@ -13,6 +13,10 @@ var config = {
 };
 firebase.initializeApp(config);
 
+$( "#dog_file" ).change(function() {
+  $(".photo-upload").attr("src", "/assets/img/dog-photo-green.svg")
+});
+
 $(document).ready(function(){
 	var dogId = 1; //Set back to 0
 	       console.log(dogId);
@@ -22,45 +26,45 @@ $(document).ready(function(){
 
 		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-		var lati = [44.9790446, 44.9060055, 44.9816093];
-		var long = [-93.1589169, -93.2006303, -93.1811714];
-		var shortDistance = 100000000;
-		var index = -1;
+	// 	var lati = [44.9790446, 44.9060055, 44.9816093];
+	// 	var long = [-93.1589169, -93.2006303, -93.1811714];
+	// 	var shortDistance = 100000000;
+	// 	var index = -1;
 
-		function distance(lon1, lat1, lon2, lat2) {
-		var R = 6371; // Radius of the earth in km
-		var dLat = (lat2-lat1).toRad();  // Javascript functions in radians
-		var dLon = (lon2-lon1).toRad();
-		var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-		Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
-		Math.sin(dLon/2) * Math.sin(dLon/2);
-		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-		var d = R * c; // Distance in km
-		return d;
-	}
+	// 	function distance(lon1, lat1, lon2, lat2) {
+	// 	var R = 6371; // Radius of the earth in km
+	// 	var dLat = (lat2-lat1).toRad();  // Javascript functions in radians
+	// 	var dLon = (lon2-lon1).toRad();
+	// 	var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+	// 	Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+	// 	Math.sin(dLon/2) * Math.sin(dLon/2);
+	// 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+	// 	var d = R * c; // Distance in km
+	// 	return d;
+	// }
 
-	/** Converts numeric degrees to radians */
-	if (typeof(Number.prototype.toRad) === "undefined") {
-		Number.prototype.toRad = function() {
-			return this * Math.PI / 180;
-		}
-	}
+	// * Converts numeric degrees to radians 
+	// if (typeof(Number.prototype.toRad) === "undefined") {
+	// 	Number.prototype.toRad = function() {
+	// 		return this * Math.PI / 180;
+	// 	}
+	// }
 
-	window.navigator.geolocation.getCurrentPosition(function(pos) {
-		console.log(pos); 
-		for (var i=0; i<long.length; i++){
-			distanceAway=distance(pos.coords.longitude, pos.coords.latitude, long[i], lati[i]);
-			console.log("DISTANCE AWAY " + distanceAway);
-			if (distanceAway<shortDistance){
-				shortDistance = distanceAway;
-				index = i;
-				console.log("INDEX " + index);
-		    // index is the indicator of the closest park, 0 is como, 1 is minnehaha, 2 is bootcamp
-		};
+	// window.navigator.geolocation.getCurrentPosition(function(pos) {
+	// 	console.log(pos); 
+	// 	for (var i=0; i<long.length; i++){
+	// 		distanceAway=distance(pos.coords.longitude, pos.coords.latitude, long[i], lati[i]);
+	// 		console.log("DISTANCE AWAY " + distanceAway);
+	// 		if (distanceAway<shortDistance){
+	// 			shortDistance = distanceAway;
+	// 			index = i;
+	// 			console.log("INDEX " + index);
+	// 	    // index is the indicator of the closest park, 0 is como, 1 is minnehaha, 2 is bootcamp
+	// 	};
 
-	};
+	// };
 
-	});
+	// });
 
 
 		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -117,8 +121,8 @@ $(document).ready(function(){
 	  					console.log(data);
 					});
 				  // location.reload();
-				  // localStorage.setItem("myDogImage", dogImage);
-				  // debugger;
+
+				  localStorage.setItem("myDogImage", dogImage);
 				  window.location.href = "/dashboard";
 
             });
@@ -145,6 +149,7 @@ $(document).ready(function(){
 				console.log("we are here too");
 			}
 		);
+		window.location.href = "/como";
 	});
 
 
@@ -168,6 +173,7 @@ $(document).ready(function(){
 
 			}
 		);
+		window.location.href = "/minnehaha";
 	});
 
 	$("#bootcampSubmit").on("click", function (e) {
@@ -188,6 +194,8 @@ $(document).ready(function(){
 				console.log("we are here too");
 			}
 		);
+
+		window.location.href = "/bootcamp";
 	});
 
 	$("#doghouseSubmit").on("click", function (e) {
@@ -206,7 +214,10 @@ $(document).ready(function(){
 		}).then(
 			function () {
 				console.log("we are here too");
-		});
+			}
+		);
+
+		window.location.href = "/dashboard";
 	});
 
 	//COMMENT UPDATE CODE TO HTML
