@@ -35,21 +35,22 @@ router.get("/", function(req, res) {
 
 
   db.Dog.findAll({}).then(function(results) {
-    // var hbsObject = {
-    // 	dogs: results
-    // };
+    var hbsObject = {
+    	dogs: results,
+      myDog: results[0] //delete
+    };
     console.log("XXXXXXXXXXXX");
 
 
     // console.log(hbsObject);
-    // res.render("index", hbsObject);
+    res.render("dashboard", hbsObject);
     //res.json(results);
     console.log(results);
-    res.sendFile(path.join(__dirname, "../public/test.html"));
+    // res.sendFile(path.join(__dirname, "../public/test.html"));
+    // res.sendFile(path.join(__dirname, "../public/mike-dashboard.html"));
   });
   
 });
-
 
 router.post("/api/newDog", function(req, res) {
   console.log("New Dog:-----------------------");
@@ -100,18 +101,18 @@ router.put("/api/como/:id", function(req, res) {
   // Update takes in an object describing the properties we want to update, and
   // we use where to describe which objects we want to update
   // var condition = "id = " + req.params.id;\
-  console.log("This is ID in router" + dogId);
+  console.log("This is ID in router" + 1); //dogId
   db.Dog.update(
     {
       park_at: req.body.parkName,
     },
     {
       where: {
-        id: dogId
+        id: 1 //dogId
       }
     }
   ).then(function(result) {
-    db.Dog.increment("como_visits", { where: { id: dogId } });
+    db.Dog.increment("como_visits", { where: { id: 1 } }); //dogId
 
 
     db.Dog.sum('como_visits').then(function (resultA) {

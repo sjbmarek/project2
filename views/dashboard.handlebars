@@ -1,0 +1,72 @@
+<div class="container bg">
+
+		<!-- Test Connection -->
+		{{!-- <p style="color: pink; z-index: 100000; position: absolute; background: blue">{{dogs.dataValues.id}}</p> --}}
+		<p style="color: pink; z-index: 100000; position: absolute; background: blue">{{dogs.dataValues.id}}</p>
+		{{#each dogs}}
+			<p style="color: pink; z-index: 100000; background: blue">{{this.dataValues.id}}</p>
+		{{/each}}
+
+
+		<div class="nav-holder">
+			<!-- User Bar -->
+			<div class="user-bar">
+				<img class="dashboard-img dashboard-logo" src="http://via.placeholder.com/150x150" alt="logo">
+				<h4 class="dashboard-dog-name"><span id="my-dog-name-dashboard">Acorn</span><br><span id="my-dog-status-dashboard">I love sticks</span></h4>
+				<img class="dashboard-img dashboard-user-dog" src="{{myDog.dataValues.dog_photo_url}}" alt="logo">
+			</div>
+
+			<!-- Comment Form -->
+			<div class="comment-holder">
+				<div class="comment-input-holder">
+					<input class="comment-input" type="text" placeholder="What's on your dog's mind?">
+				</div>
+				<div class="comment-submit">
+						UPDATE
+					</div>
+			</div>
+			<div class="shadow"></div>
+		</div>
+		
+		<!-- Location Holder -->
+		<div class="current-location-holder">
+			<h3 class="current-location">IN THE DOGHOUSE</h3>
+		</div>
+
+		<!-- Map Holder -->
+		<div class="map">
+			<div class="location doghouse-marker"></div>
+			<div id="comoSubmit" class="location como-marker"></div>
+			<div class="location minnehaha-marker"></div>
+			<div class="location bootcamp-marker"></div>
+		</div>
+		
+		<!-- Dog Holder -->
+		<div class="dog-holder">
+			<div class="checkin-status">
+				<p class="checkin-text">You are here</p>
+				<button type="button" class="btn btn-primary checkin-button checked-in-doghouse">Log In</button>
+				<div  style="height: 5px" class="spacer"></div>
+			</div>
+
+			<div class="dog-list-holder row">
+				<div class="col">
+					<table class="table">
+						<tbody>
+							{{#each dogs}}
+							{{#contains this.dataValues.park_at "Doghouse"}}
+							<tr>
+								<td><img class="table-img" src="http://via.placeholder.com/150x150" alt="logo"></td>
+								<td><h4><span id="table-dog">Acorn</span><br><span id="table-status">I love sticks</span></h4></td>
+							</tr>
+							{{/contains}}
+							{{/each}}
+						</tbody>
+					</table>
+				</div>
+				
+			</div>
+			
+		</div>
+
+	</div>

@@ -20,6 +20,9 @@ app.use(bodyParser.json());
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
+// Require handlebars helpers
+var helpers = require("handlebars-helpers")();
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 

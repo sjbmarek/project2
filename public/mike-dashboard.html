@@ -36,6 +36,7 @@
 						UPDATE
 					</div>
 			</div>
+			<div class="shadow"></div>
 		</div>
 		
 		<!-- Location Holder -->
@@ -46,7 +47,7 @@
 		<!-- Map Holder -->
 		<div class="map">
 			<div class="location doghouse-marker"></div>
-			<div class="location como-marker"></div>
+			<div id="comoSubmit" class="location como-marker"></div>
 			<div class="location minnehaha-marker"></div>
 			<div class="location bootcamp-marker"></div>
 		</div>
@@ -91,27 +92,12 @@
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 
-	<script type="text/javascript">
-		
-		$(document).ready(function(){
-
-			$.ajax({
-			url: "/all-dogs",
-			type: 'GET'
-		})
-		.done(function(response) {
-
-			console.log(response);
-
-
-	});
-
-	});
-
-	</script>
-
 	<!-- Addtional Logic -->
-	<!-- <script src="mike-test-script.js"></script> -->
+	<!-- <script>
+		
+	</script> -->
+
+	<script src="/assets/js/dogs.js"></script>
 	<!-- <script src="../data_pull_test.js"></script> -->
 </body>
 </html>

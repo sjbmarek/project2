@@ -3,19 +3,19 @@ console.log(test);
 
 // Initialize Firebase
 //========================================================================
-var config = {
-    apiKey: "AIzaSyCq24OblNHStJVOzNsdYFoaMVfQQF5PVn0",
-    authDomain: "pupcrawl-fea80.firebaseapp.com",
-    databaseURL: "https://pupcrawl-fea80.firebaseio.com",
-    projectId: "pupcrawl-fea80",
-    storageBucket: "pupcrawl-fea80.appspot.com",
-    messagingSenderId: "142821736229"
-};
-firebase.initializeApp(config);
+// var config = {
+//     apiKey: "AIzaSyCq24OblNHStJVOzNsdYFoaMVfQQF5PVn0",
+//     authDomain: "pupcrawl-fea80.firebaseapp.com",
+//     databaseURL: "https://pupcrawl-fea80.firebaseio.com",
+//     projectId: "pupcrawl-fea80",
+//     storageBucket: "pupcrawl-fea80.appspot.com",
+//     messagingSenderId: "142821736229"
+// };
+// firebase.initializeApp(config);
 
 $(document).ready(function(){
-	var dogId = 0;
-	       
+	var dogId = 1; //Set back to 0
+	       console.log(dogId);
 
 	$("#submit").on("click", function(e){
 		e.preventDefault();
@@ -128,7 +128,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		console.log("this has been clicked");
 
-		var id = dogId;
+		var id = 1; //switch back to dogId
 		var dogLocation = {
 			parkName: "Como Dog Park"
 		};
@@ -161,6 +161,8 @@ $(document).ready(function(){
 		}).then(
 			function () {
 				console.log("we are here too");
+				
+				
 			}
 		);
 	});
