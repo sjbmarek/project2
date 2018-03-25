@@ -13,11 +13,21 @@ var config = {
 };
 firebase.initializeApp(config);
 
-$( "#dog_file" ).change(function() {
-  $(".photo-upload").attr("src", "/assets/img/dog-photo-green.svg")
-});
-
 $(document).ready(function(){
+
+	$( "#dog_file" ).change(function() {
+	  $(".photo-upload").attr("src", "/assets/img/dog-photo-green.svg")
+	});
+
+	// Grab Local storage
+	var myDogName = localStorage.getItem("myDogName");
+	var myDogCommentLocal = localStorage.getItem("myDogComment");
+	var myDogUrl = localStorage.getItem("myDogUrl");
+
+	$("#my-dog-name-dashboard").text(myDogName);
+	$("#my-dog-status-dashboard").text(myDogCommentLocal);
+	$(".dashboard-user-dog").attr("src", myDogUrl);
+
 	var dogId = 1; //Set back to 0
 	       console.log(dogId);
 
@@ -102,7 +112,9 @@ $(document).ready(function(){
                 storageRef.getDownloadURL().then(function(url) {
 
                     dogImage = url;
-                    localStorage.setItem("MyDogUrl", dogImage);
+                    localStorage.setItem("myDogUrl", dogImage);
+                    localStorage.setItem("myDogName", $("input[name='dog_name']").val().trim());
+                    localStorage.setItem("myDogComment", "Woof! Woof!");
                     console.log("dog,dog,dog");
                     console.log(dogImage);
 
@@ -120,9 +132,6 @@ $(document).ready(function(){
 					  	console.log("we are hitting it");
 	  					console.log(data);
 					});
-				  // location.reload();
-
-				  localStorage.setItem("myDogImage", dogImage);
 				  window.location.href = "/dashboard";
 
             });
@@ -226,7 +235,7 @@ $(document).ready(function(){
     console.log("this is Comment Submit");
     var id = dogId;
     var myDogComment = $("input[name=comment]").val().trim();
-    localStorage.setItem("MyComment", myDogComment);
+    localStorage.setItem("myDogComment", myDogComment);
     var dogRecord = {
       dogComment: $("input[name=comment]").val().trim()
     };
@@ -236,6 +245,8 @@ $(document).ready(function(){
       data: dogRecord
     }).then(function() {
       console.log("Comment Sent");
+      $("#my-dog-status-dashboard").text(localStorage.getItem("myDogComment"));
+      location.reload();
     });
   });
 });

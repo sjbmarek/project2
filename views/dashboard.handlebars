@@ -1,19 +1,11 @@
 <div class="container bg">
 
-		<!-- Test Connection -->
-		{{!-- <p style="color: pink; z-index: 100000; position: absolute; background: blue">{{dogs.dataValues.id}}</p> --}}
-		{{!-- <p style="color: pink; z-index: 100000; position: absolute; background: blue">{{dogs.dataValues.id}}</p>
-		{{#each dogs}}
-			<p style="color: pink; z-index: 100000; background: blue">{{this.dataValues.id}}</p>
-		{{/each}} --}}
-
-
 		<div class="nav-holder">
 			<!-- User Bar -->
 			<div class="user-bar">
-				<img class="dashboard-img dashboard-logo" src="/assets/img/logo.svg" alt="logo">
-				<h4 class="dashboard-dog-name"><span id="my-dog-name-dashboard">Acorn</span><br><span id="my-dog-status-dashboard">I love sticks</span></h4>
-				<img class="dashboard-img dashboard-user-dog" src="{{myDog.dataValues.dog_photo_url}}" alt="logo">
+				<img class="dashboard-logo" src="/assets/img/logo.svg" alt="logo">
+				<h4 class="dashboard-dog-name"><span id="my-dog-name-dashboard"></span><br><span id="my-dog-status-dashboard"></span></h4>
+				<img class="dashboard-img dashboard-user-dog" src="#" alt="logo">
 			</div>
 
 			<!-- Comment Form -->
@@ -35,18 +27,18 @@
 
 		<!-- Map Holder -->
 		<div class="map">
-			<img src="/assets/img/orange-doghouse.svg" class="location doghouse-marker">
-			<img src="/assets/img/purple-marker.svg" id="comoSubmit" class="location como-marker">
-			<img src="/assets/img/purple-marker.svg" class="location minnehaha-marker">
-			<img src="/assets/img/purple-marker.svg"class="location bootcamp-marker">
+			<a href="/dashboard"><img src="/assets/img/orange-doghouse.svg" class="location doghouse-marker"></a>
+			<a href="/como"><img src="/assets/img/purple-marker.svg"  class="location como-marker"></a>
+			<a href="/minnehaha"><img src="/assets/img/purple-marker.svg" class="location minnehaha-marker"></a>
+			<a href="/bootcamp"><img src="/assets/img/purple-marker.svg"class="location bootcamp-marker"></a>
 		</div>
 		
 		<!-- Dog Holder -->
 		<div class="dog-holder">
 			<div class="checkin-status">
 				<div  style="height: 5px" class="spacer"></div>
-				<button type="button" class="btn btn-primary checkin-button checked-in-location">Check-in</button>
-				<div  style="height: 5px" class="spacer"></div>
+				<button id="doghouseSubmit" type="button" class="btn btn-primary checkin-button checked-in-location">Check-in</button>
+				<div style="height: 5px" class="spacer"></div>
 			</div>
 
 			<div class="dog-list-holder row">
