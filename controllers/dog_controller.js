@@ -115,18 +115,18 @@ router.put("/api/como/:id", function(req, res) {
   // Update takes in an object describing the properties we want to update, and
   // we use where to describe which objects we want to update
   // var condition = "id = " + req.params.id;\
-  console.log("This is ID in router" + 1); //dogId
+  console.log("This is ID in router" + dogId); //dogId
   db.Dog.update(
     {
       park_at: req.body.parkName,
     },
     {
       where: {
-        id: 1 //dogId
+        id: dogId //dogId
       }
     }
   ).then(function(result) {
-    db.Dog.increment("como_visits", { where: { id: 1 } }); //dogId
+    db.Dog.increment("como_visits", { where: { id: dogId } }); //dogId
 
 
     db.Dog.sum('como_visits').then(function (resultA) {

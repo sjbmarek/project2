@@ -20,6 +20,51 @@ $(document).ready(function(){
 	$("#submit").on("click", function(e){
 		e.preventDefault();
 
+		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+		var lati = [44.9790446, 44.9060055, 44.9816093];
+		var long = [-93.1589169, -93.2006303, -93.1811714];
+		var shortDistance = 100000000;
+		var index = -1;
+
+		function distance(lon1, lat1, lon2, lat2) {
+		var R = 6371; // Radius of the earth in km
+		var dLat = (lat2-lat1).toRad();  // Javascript functions in radians
+		var dLon = (lon2-lon1).toRad();
+		var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+		Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) *
+		Math.sin(dLon/2) * Math.sin(dLon/2);
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+		var d = R * c; // Distance in km
+		return d;
+	}
+
+	/** Converts numeric degrees to radians */
+	if (typeof(Number.prototype.toRad) === "undefined") {
+		Number.prototype.toRad = function() {
+			return this * Math.PI / 180;
+		}
+	}
+
+	window.navigator.geolocation.getCurrentPosition(function(pos) {
+		console.log(pos); 
+		for (var i=0; i<long.length; i++){
+			distanceAway=distance(pos.coords.longitude, pos.coords.latitude, long[i], lati[i]);
+			console.log("DISTANCE AWAY " + distanceAway);
+			if (distanceAway<shortDistance){
+				shortDistance = distanceAway;
+				index = i;
+				console.log("INDEX " + index);
+		    // index is the indicator of the closest park, 0 is como, 1 is minnehaha, 2 is bootcamp
+		};
+
+	};
+
+	});
+
+
+		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
         // Get Elements
         var uploader = document.getElementById("uploader");
         var fileButton = document.getElementById("dog_file");
@@ -29,7 +74,7 @@ $(document).ready(function(){
         console.log(file);
 
         // Create storage ref
-        var storageRef = firebase.storage().ref("profile_pics/" + file.name);
+        var storageRef = firebase.storage().ref("profile_pics/" + Date.now() + file.name);
 
         // Upload file
         var task = storageRef.put(file);
@@ -40,8 +85,6 @@ $(document).ready(function(){
         // Update progress bar
         task.on("state_changed",
             function progress(snapshot) {
-                // var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                // uploader.value = percentage;
                 console.log(snapshot);
             },
 
@@ -52,7 +95,6 @@ $(document).ready(function(){
                 console.log("COMPLETE!");
 
                 // Once complete - get the stored image URL
-                // var dogURL = storageRef.getDownloadURL().then(function(url));
                 storageRef.getDownloadURL().then(function(url) {
 
                     dogImage = url;
@@ -62,7 +104,6 @@ $(document).ready(function(){
 					var dogRecord = {
 						dogName: $("input[name='dog_name']").val().trim(),
 						ownerName: $("input[name='owner_name']").val().trim(),
-						// dogComment: $("input[name='dog_comment']").val().trim(),
 						dogPhoto: dogImage
 					}
 
@@ -75,62 +116,21 @@ $(document).ready(function(){
 	  					console.log(data);
 					});
 				  // location.reload();
-				  localStorage.setItem("name", "mike");
+				  localStorage.setItem("myDogImage", dogImage);
+				  debugger;
 				  window.location.href = "/dashboard";
 
             });
 
         });
 
-        // get url for picture link
-        // var dogURL = storageRef.getDownloadURL();
-        // console.log(dogURL);
-
-
-  //       var dogRecord = {
-		// 	dogName: $("input[name='dog_name']").val().trim(),
-		// 	ownerName: $("input[name='owner_name']").val().trim(),
-		// 	dogComment: $("input[name='dog_comment']").val().trim(),
-		// 	dogPhoto: dogImage
-		// }
-
-		// console.log(dogRecord);
-
-		// $.post("/api/newDog", dogRecord,
-	 //  			function(data){
-		// 			  console.log("we are hitting it");
-	 //  				console.log(data);
-		// 		});
-				  // location.reload();
-
 	});
-
-
-
-
-// 	$("#comoSubmit").on("click", function(e) {
-//     e.preventDefault();
-// 	console.log("This was clicked");
-//     var dogLocation = {
-// 		parkName: "Como Dog Park",
-// 		dogId: 1
-// 	}
-
-// 	console.log("this is location");
-// 	console.log(dogLocation);
-
-// 		$.post("/api/como/:id", dogLocation, function(data) {
-// 	  console.log(data);
-// 	  console.log("now are hitting como submit");
-//     });
-//     // location.reload();
-//   });
 
 	$("#comoSubmit").on("click", function (e) {
 		e.preventDefault();
 		console.log("this has been clicked");
 
-		var id = 1; //switch back to dogId
+		var id = dogId;
 		var dogLocation = {
 			parkName: "Como Dog Park"
 		};
