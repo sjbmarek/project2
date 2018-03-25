@@ -173,7 +173,8 @@ td h4 {
 	left: 42.5%;
 	margin: 0 auto;
 	display: block;
-	animation: none; 
+	animation: offset;
+	animation-duration: 1s; 
 }
 
 .sign-up-input {
@@ -428,7 +429,7 @@ td h4 {
 	}
 
 	50% {
-		transform: translateX(5px);
+		transform: translateX(-10px);
 	}
 
 	100% {
