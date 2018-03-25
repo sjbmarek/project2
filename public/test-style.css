@@ -289,9 +289,28 @@ td h4 {
 }
 
 .location {
-	height: 25px;
-	width: 25px;
-	background: blue;
+	height: 45px;
+	position: absolute;
+}
+
+.como-marker {
+	top: 15px;
+	right: 40%;
+}
+
+.bootcamp-marker {
+	top: 5px;
+	right: 50%;
+}
+
+.minnehaha-marker {
+	bottom: 20px;
+	right: 50%;
+}
+
+.doghouse-marker {
+	bottom: 10px;
+	right: 10px;
 }
 
 .dog-holder {
@@ -324,8 +343,14 @@ td h4 {
 .checked-in-location {
 	background: #2cb71d;
 }
-.checked-out-location {
-	background: #d67216;
+.checked-in-location:active {
+	background: #158918 !important;
+}
+.checked-in-location:focus {
+	background: #158918 !important;
+}
+.checked-in-location:visited {
+	background: #158918 !important;
 }
 
 .dog-list-holder {
@@ -334,6 +359,7 @@ td h4 {
 
 .table-img {
 	height: 75px;
+	width: 75px;
 	object-fit: cover;
 	border-radius: 50%;
 }

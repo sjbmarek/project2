@@ -13,11 +13,13 @@ var db = require("../models");
 // res.sendFile(path.join(__dirname, "../public/test.html"));
 // });
 // Create all our routes and set up logic within those routes where required.
-router.get("/dashboard", function(req, res) {
+router.get("/:location", function(req, res) {
   // console.log(db);
 
       console.log(new Date);
       console.log("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
+      var incomingURL = req.url
+      console.log(incomingURL);
     db.Dog.update({
         park_at: "Doghouse"
       },{
@@ -36,14 +38,25 @@ router.get("/dashboard", function(req, res) {
 
   db.Dog.findAll({}).then(function(results) {
     var hbsObject = {
-    	dogs: results,
-      myDog: results[0] //delete
+    	dogs: results
     };
     console.log("XXXXXXXXXXXX");
 
+    if (incomingURL === "/dashboard") {
+      res.render("dashboard", hbsObject);
+    } else if (incomingURL === "/como") {
+      res.render("como", hbsObject);
+    } else if (incomingURL === "/minnehaha") {
+      res.render("minnehaha", hbsObject);
+    } else if (incomingURL === "/bootcamp") {
+      res.render("bootcamp", hbsObject);
+    } else if (incomingURL === "/signup") {
+      res.render("signup");
+    } else {
+      res.render("index");
+    };
 
     // console.log(hbsObject);
-    res.render("dashboard", hbsObject);
     //res.json(results);
     console.log(results);
     // res.sendFile(path.join(__dirname, "../public/test.html"));
