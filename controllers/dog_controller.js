@@ -53,7 +53,7 @@ router.get("/:location", function(req, res) {
     } else if (incomingURL === "/signup") {
       res.render("signup");
     } else {
-      res.render("index");
+      res.render("signup");
     };
 
     // console.log(hbsObject);
@@ -68,7 +68,7 @@ router.get("/:location", function(req, res) {
 // index route
 router.get("/", function(req, res) {
   
-  res.render("index");
+  res.render("signup");
   
 });
 

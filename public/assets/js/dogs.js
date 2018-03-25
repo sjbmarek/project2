@@ -16,7 +16,12 @@ firebase.initializeApp(config);
 $(document).ready(function(){
 
 	$( "#dog_file" ).change(function() {
-	  $(".photo-upload").attr("src", "/assets/img/dog-photo-green.svg")
+	  $(".photo-upload").attr("src", "/assets/img/dog-photo-green.svg");
+
+	  if ($(".dogNameInput").val() !== "" && $(".ownerNameInput").val() !== "" && $("#dog_file").val() !== "") {
+	  	$("#submit").fadeIn();
+	  };
+
 	});
 
 	// Grab Local storage
