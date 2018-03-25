@@ -2,16 +2,16 @@
 
 		<!-- Test Connection -->
 		{{!-- <p style="color: pink; z-index: 100000; position: absolute; background: blue">{{dogs.dataValues.id}}</p> --}}
-		{{!-- <p style="color: pink; z-index: 100000; position: absolute; background: blue">{{dogs.dataValues.id}}</p>
+		<p style="color: pink; z-index: 100000; position: absolute; background: blue">{{dogs.dataValues.id}}</p>
 		{{#each dogs}}
 			<p style="color: pink; z-index: 100000; background: blue">{{this.dataValues.id}}</p>
-		{{/each}} --}}
+		{{/each}}
 
 
 		<div class="nav-holder">
 			<!-- User Bar -->
 			<div class="user-bar">
-				<img class="dashboard-img dashboard-logo" src="/assets/img/logo.svg" alt="logo">
+				<img class="dashboard-img dashboard-logo" src="http://via.placeholder.com/150x150" alt="logo">
 				<h4 class="dashboard-dog-name"><span id="my-dog-name-dashboard">Acorn</span><br><span id="my-dog-status-dashboard">I love sticks</span></h4>
 				<img class="dashboard-img dashboard-user-dog" src="{{myDog.dataValues.dog_photo_url}}" alt="logo">
 			</div>
@@ -30,22 +30,22 @@
 		
 		<!-- Location Holder -->
 		<div class="current-location-holder">
-			<h3 class="current-location">IN THE DOGHOUSE</h3>
+			<h3 class="current-location">AT BOOTCAMP DOG PARK</h3>
 		</div>
 
 		<!-- Map Holder -->
 		<div class="map">
-			<img src="/assets/img/orange-doghouse.svg" class="location doghouse-marker">
-			<img src="/assets/img/purple-marker.svg" id="comoSubmit" class="location como-marker">
-			<img src="/assets/img/purple-marker.svg" class="location minnehaha-marker">
-			<img src="/assets/img/purple-marker.svg"class="location bootcamp-marker">
+			<div class="location doghouse-marker"></div>
+			<div id="comoSubmit" class="location como-marker"></div>
+			<div class="location minnehaha-marker"></div>
+			<div class="location bootcamp-marker"></div>
 		</div>
 		
 		<!-- Dog Holder -->
 		<div class="dog-holder">
 			<div class="checkin-status">
-				<div  style="height: 5px" class="spacer"></div>
-				<button type="button" class="btn btn-primary checkin-button checked-in-location">Check-in</button>
+				<p class="checkin-text">You are here</p>
+				<button type="button" class="btn btn-primary checkin-button checked-in-doghouse">Log In</button>
 				<div  style="height: 5px" class="spacer"></div>
 			</div>
 
@@ -54,9 +54,9 @@
 					<table class="table">
 						<tbody>
 							{{#each dogs}}
-							{{#contains this.dataValues.park_at "Doghouse"}}
+							{{#contains this.dataValues.park_at "Bootcamp Dog Park"}}
 							<tr>
-								<td><img class="table-img" src="{{this.dataValues.dog_photo_url}}" alt="logo"></td>
+								<td><img class="table-img" src="http://via.placeholder.com/150x150" alt="logo"></td>
 								<td><h4><span id="table-dog">{{this.dataValues.dog_name}}</span><br><span id="table-status">{{this.dataValues.dog_comment}}</span></h4></td>
 							</tr>
 							{{/contains}}
