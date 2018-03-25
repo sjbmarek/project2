@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pup Crawl</title>
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Montserrat" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<!-- Additional Styles -->
+	<link rel="stylesheet" href="test-style.css">
+</head>
+<body class="dashboard-body">
+	
+	<div class="container bg">
+
+		<div class="nav-holder">
+			<!-- User Bar -->
+			<div class="user-bar">
+				<img class="dashboard-img dashboard-logo" src="http://via.placeholder.com/150x150" alt="logo">
+				<h4 class="dashboard-dog-name"><span id="my-dog-name-dashboard">Acorn</span><br><span id="my-dog-status-dashboard">I love sticks</span></h4>
+				<img class="dashboard-img dashboard-user-dog" src="http://via.placeholder.com/150x150" alt="logo">
+			</div>
+
+			<!-- Comment Form -->
+			<div class="comment-holder">
+				<div class="comment-input-holder">
+					<input class="comment-input" type="text" placeholder="What's on your dog's mind?">
+				</div>
+				<div class="comment-submit">
+						UPDATE
+					</div>
+			</div>
+			<div class="shadow"></div>
+		</div>
+		
+		<!-- Location Holder -->
+		<div class="current-location-holder">
+			<h3 class="current-location">IN THE DOGHOUSE</h3>
+		</div>
+
+		<!-- Map Holder -->
+		<div class="map">
+			<div class="location doghouse-marker"></div>
+			<div id="comoSubmit" class="location como-marker"></div>
+			<div class="location minnehaha-marker"></div>
+			<div class="location bootcamp-marker"></div>
+		</div>
+		
+		<!-- Dog Holder -->
+		<div class="dog-holder">
+			<div class="checkin-status">
+				<p class="checkin-text">You are here</p>
+				<button type="button" class="btn btn-primary checkin-button checked-in-doghouse">Log In</button>
+				<div  style="height: 5px" class="spacer"></div>
+			</div>
+
+			<div class="dog-list-holder row">
+				<div class="col">
+					<table class="table">
+						<tbody>
+							<tr>
+								<td><img class="table-img" src="http://via.placeholder.com/150x150" alt="logo"></td>
+								<td><h4><span id="table-dog">Acorn</span><br><span id="table-status">I love sticks</span></h4></td>
+							</tr>
+							<tr>
+								<td><img class="table-img" src="http://via.placeholder.com/150x150" alt="logo"></td>
+								<td><h4><span id="table-dog">Acorn</span><br><span id="table-status">I love sticks</span></h4></td>
+							</tr>
+							<tr>
+								<td><img class="table-img" src="http://via.placeholder.com/150x150" alt="logo"></td>
+								<td><h4><span id="table-dog">Acorn</span><br><span id="table-status">I love sticks</span></h4></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+			</div>
+			
+		</div>
+
+	</div>
+	
+	<!-- jQuery -->
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+	<!-- Addtional Logic -->
+	<!-- <script>
+		
+	</script> -->
+
+	<script src="/assets/js/dogs.js"></script>
+	<!-- <script src="../data_pull_test.js"></script> -->
+</body>
+</html>

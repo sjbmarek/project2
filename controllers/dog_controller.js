@@ -13,7 +13,7 @@ var db = require("../models");
 // res.sendFile(path.join(__dirname, "../public/test.html"));
 // });
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
+router.get("/dashboard", function(req, res) {
   // console.log(db);
 
       console.log(new Date);
@@ -35,21 +35,36 @@ router.get("/", function(req, res) {
 
 
   db.Dog.findAll({}).then(function(results) {
-    // var hbsObject = {
-    // 	dogs: results
-    // };
+    var hbsObject = {
+    	dogs: results,
+      myDog: results[0] //delete
+    };
     console.log("XXXXXXXXXXXX");
 
 
     // console.log(hbsObject);
-    // res.render("index", hbsObject);
+    res.render("dashboard", hbsObject);
     //res.json(results);
     console.log(results);
-    res.sendFile(path.join(__dirname, "../public/test.html"));
+    // res.sendFile(path.join(__dirname, "../public/test.html"));
+    // res.sendFile(path.join(__dirname, "../public/mike-dashboard.html"));
   });
   
 });
 
+// index route
+router.get("/", function(req, res) {
+  
+  res.render("index");
+  
+});
+
+// Sign up route
+router.get("/signup", function(req, res) {
+  
+  res.render("signup");
+  
+});
 
 router.post("/api/newDog", function(req, res) {
   console.log("New Dog:-----------------------");
@@ -100,18 +115,18 @@ router.put("/api/como/:id", function(req, res) {
   // Update takes in an object describing the properties we want to update, and
   // we use where to describe which objects we want to update
   // var condition = "id = " + req.params.id;\
-  console.log("This is ID in router" + dogId);
+  console.log("This is ID in router" + dogId); //dogId
   db.Dog.update(
     {
       park_at: req.body.parkName,
     },
     {
       where: {
-        id: dogId
+        id: dogId //dogId
       }
     }
   ).then(function(result) {
-    db.Dog.increment("como_visits", { where: { id: dogId } });
+    db.Dog.increment("como_visits", { where: { id: dogId } }); //dogId
 
 
     db.Dog.sum('como_visits').then(function (resultA) {
