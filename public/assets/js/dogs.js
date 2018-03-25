@@ -3,15 +3,15 @@ console.log(test);
 
 // Initialize Firebase
 //========================================================================
-// var config = {
-//     apiKey: "AIzaSyCq24OblNHStJVOzNsdYFoaMVfQQF5PVn0",
-//     authDomain: "pupcrawl-fea80.firebaseapp.com",
-//     databaseURL: "https://pupcrawl-fea80.firebaseio.com",
-//     projectId: "pupcrawl-fea80",
-//     storageBucket: "pupcrawl-fea80.appspot.com",
-//     messagingSenderId: "142821736229"
-// };
-// firebase.initializeApp(config);
+var config = {
+    apiKey: "AIzaSyCq24OblNHStJVOzNsdYFoaMVfQQF5PVn0",
+    authDomain: "pupcrawl-fea80.firebaseapp.com",
+    databaseURL: "https://pupcrawl-fea80.firebaseio.com",
+    projectId: "pupcrawl-fea80",
+    storageBucket: "pupcrawl-fea80.appspot.com",
+    messagingSenderId: "142821736229"
+};
+firebase.initializeApp(config);
 
 $(document).ready(function(){
 	var dogId = 1; //Set back to 0
@@ -40,8 +40,9 @@ $(document).ready(function(){
         // Update progress bar
         task.on("state_changed",
             function progress(snapshot) {
-                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                uploader.value = percentage;
+                // var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                // uploader.value = percentage;
+                console.log(snapshot);
             },
 
             function error (err) {
@@ -61,7 +62,7 @@ $(document).ready(function(){
 					var dogRecord = {
 						dogName: $("input[name='dog_name']").val().trim(),
 						ownerName: $("input[name='owner_name']").val().trim(),
-						dogComment: $("input[name='dog_comment']").val().trim(),
+						// dogComment: $("input[name='dog_comment']").val().trim(),
 						dogPhoto: dogImage
 					}
 
@@ -74,7 +75,8 @@ $(document).ready(function(){
 	  					console.log(data);
 					});
 				  // location.reload();
-
+				  localStorage.setItem("name", "mike");
+				  window.location.href = "/dashboard";
 
             });
 
@@ -161,8 +163,8 @@ $(document).ready(function(){
 		}).then(
 			function () {
 				console.log("we are here too");
-				
-				
+
+
 			}
 		);
 	});

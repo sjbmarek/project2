@@ -13,7 +13,7 @@ var db = require("../models");
 // res.sendFile(path.join(__dirname, "../public/test.html"));
 // });
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
+router.get("/dashboard", function(req, res) {
   // console.log(db);
 
       console.log(new Date);
@@ -49,6 +49,20 @@ router.get("/", function(req, res) {
     // res.sendFile(path.join(__dirname, "../public/test.html"));
     // res.sendFile(path.join(__dirname, "../public/mike-dashboard.html"));
   });
+  
+});
+
+// index route
+router.get("/", function(req, res) {
+  
+  res.render("index");
+  
+});
+
+// Sign up route
+router.get("/signup", function(req, res) {
+  
+  res.render("signup");
   
 });
 

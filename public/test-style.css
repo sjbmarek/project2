@@ -91,6 +91,7 @@ td h4 {
 
 .intro-graphic {
 	width: 100%;
+	padding: 0 15px;
 }
 
 .signup {
@@ -116,6 +117,10 @@ td h4 {
 
 /* Sign up section */
 /*==============================================*/
+
+.collar-graphic {
+	width: 100%;
+}
 
 .dog-tag {
 	width: 80%;
@@ -158,9 +163,7 @@ td h4 {
 }
 
 .photo-upload {
-	height: 100px;
-	object-fit: cover;
-	border-radius: 50%;
+	height: 115px;
 	display: block;
 	margin: 0 auto;
 }
