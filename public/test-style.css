@@ -11,6 +11,32 @@ Medium grey: #c6c6c6
 Dark grey: #6d6d6d
 */
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #6d6d6d;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #6d6d6d;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #6d6d6d;
+}
+
+.comment-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #c6c6c6;
+    opacity: 1; /* Firefox */
+}
+
+.comment-input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #c6c6c6;
+}
+
+.comment-input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #c6c6c6;
+}
+
 /* HTML Elements */
 
 html {
@@ -132,6 +158,8 @@ td h4 {
 	margin: 0 auto;
 	display: block;
 	position: relative;
+	animation: hinge;
+	animation-duration: 1s; 
 }
 
 .dog-tag-ring {
@@ -144,7 +172,8 @@ td h4 {
 	top: -35px;
 	left: 42.5%;
 	margin: 0 auto;
-	display: block; 
+	display: block;
+	animation: none; 
 }
 
 .sign-up-input {
@@ -170,12 +199,12 @@ td h4 {
 
 .sign-up-submit {
 	width: 55px;
-	height: 55px;
 	background: #d67216;
 	position: absolute;
 	border-radius: 50%;
 	bottom: 5px;
 	right: 5px;
+	display: none;
 }
 
 /* Dashboard section */
@@ -249,6 +278,7 @@ td h4 {
 	width: 100%;
 	border: none;
     padding: 5px 10px;
+    color: #6d6d6d;
 }
 
 .comment-submit {
@@ -286,7 +316,7 @@ td h4 {
 .map {
 	width: 100%;
 	background: url(/assets/img/map-background-1200x770.jpg) center center no-repeat;
-	background-color: pink;
+	background-color: #dbdbdb;
 	background-size: cover;
 	min-height: 200px;
 	position: relative;
@@ -375,4 +405,34 @@ td h4 {
 	bottom: 10px;
 }
 
+/* Animations */
+/* ======================================= */
+
+@keyframes hinge {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	50% {
+		transform: rotate(3deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes offset {
+	0% {
+		transform: translateX(0px);
+	}
+
+	50% {
+		transform: translateX(5px);
+	}
+
+	100% {
+		transform: translateX(0px);
+	}
+}
 
