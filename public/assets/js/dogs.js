@@ -98,6 +98,7 @@ $(document).ready(function(){
                 storageRef.getDownloadURL().then(function(url) {
 
                     dogImage = url;
+                    localStorage.setItem("MyDogUrl", dogImage);
                     console.log("dog,dog,dog");
                     console.log(dogImage);
 
@@ -116,8 +117,8 @@ $(document).ready(function(){
 	  					console.log(data);
 					});
 				  // location.reload();
-				  localStorage.setItem("myDogImage", dogImage);
-				  debugger;
+				  // localStorage.setItem("myDogImage", dogImage);
+				  // debugger;
 				  window.location.href = "/dashboard";
 
             });
@@ -205,8 +206,25 @@ $(document).ready(function(){
 		}).then(
 			function () {
 				console.log("we are here too");
-			}
-		);
+		});
 	});
 
+	//COMMENT UPDATE CODE TO HTML
+  $("#commentSubmit").on("click", function(e) {
+    e.preventDefault();
+    console.log("this is Comment Submit");
+    var id = dogId;
+    var myDogComment = $("input[name=comment]").val().trim();
+    localStorage.setItem("MyComment", myDogComment);
+    var dogRecord = {
+      dogComment: $("input[name=comment]").val().trim()
+    };
+    // Send the PUT request.
+    $.ajax("/api/comment/:id" + id, {
+      type: "PUT",
+      data: dogRecord
+    }).then(function() {
+      console.log("Comment Sent");
+    });
+  });
 });
