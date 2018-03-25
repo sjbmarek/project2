@@ -202,6 +202,7 @@ td h4 {
 
 .dashboard-img {
 	height: 50px;
+	width: 50px;
 	object-fit: cover;
 	border-radius: 50%;
 	position: absolute;
@@ -210,6 +211,9 @@ td h4 {
 
 .dashboard-logo {
 	left: 15px;
+	width: 50px;
+	position: absolute;
+	top: 7.5px;
 }
 
 .dashboard-dog-name {
