@@ -136,8 +136,9 @@ $(document).ready(function(){
 	  					function(data){
 					  	console.log("we are hitting it");
 	  					console.log(data);
+	  					window.location.href = "/dashboard";
 					});
-				  window.location.href = "/dashboard";
+				  // window.location.href = "/dashboard";
 
             });
 
