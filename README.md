@@ -8,7 +8,9 @@ This  web app is powered by:
    - Node.js, Express Server, MySQL, Sequelize ORM, Firebase, Handlebars
    - Mocha and Chai testing
   
-Additions/Modifications could be:
+Pup Crawl is currently in limited release but plan on rolling out more features in the coming months.
+
+Additional features include:
   - User login
   - Additional input validation
   - Authentication
