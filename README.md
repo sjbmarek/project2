@@ -1,4 +1,4 @@
-![Pup Crawl] (public/assets/img/read-me-header.jpg)
+![Pup Crawl](public/assets/img/read-me-header.jpg)
 
 Pup Crawl is a web app for fostering dog (and people) socialization. Owners check in their dogs and can leave messages for others to see.
 
